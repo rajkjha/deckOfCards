@@ -1,19 +1,17 @@
 package com.deckOfCards.deckOfCards.imple;
 
-import java.util.List;
-
-import org.junit.Assert;
-
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.response.Response;
-import com.jayway.restassured.specification.RequestSpecification;
-
 import cucumber.api.DataTable;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
+
+import java.util.List;
 
 public class DrawCards {
 
@@ -31,6 +29,7 @@ public class DrawCards {
 		Assert.assertTrue(String.format("Could not reach URL : '%s', Please check URL",url),response.getStatusCode()==200);
 		deckId = response.jsonPath().get("deck_id");
 		scenario.write("deck id is " + deckId);
+
 		
 	}
 
